@@ -1,4 +1,58 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import Providers from "./providers";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@/styles/globals.css";
+
+
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta",
+});
+
+export const metadata: Metadata = {
+  title: "Realty RAG",
+  description: "AI-powered real estate search and property intelligence platform",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={plusJakarta.variable}>
+      <body>
+        <Providers>
+          <BootstrapClient />
+
+          {children}
+
+          <ToastContainer
+            position="top-center"
+            autoClose={2200}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            pauseOnHover
+            draggable
+            theme="dark"
+          />
+        </Providers>
+      </body>
+    </html>
+  );
+}
+
+
+{/*
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -28,3 +82,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+*/}

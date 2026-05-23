@@ -1,0 +1,96 @@
+:root {
+  --font-main: var(--font-plus-jakarta);
+
+  --bg-main: #f7f4ef;
+  --bg-soft: #ffffff;
+  --text-main: #171717;
+  --text-muted: #6f6f76;
+
+  --accent: #b88a44;
+  --accent-dark: #8f6428;
+  --accent-soft: rgba(184, 138, 68, 0.14);
+
+  --border-soft: rgba(20, 20, 20, 0.08);
+  --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-main), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(184, 138, 68, 0.12), transparent 32rem),
+    linear-gradient(180deg, #fbfaf7 0%, #f7f4ef 100%);
+  color: var(--text-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.main-shell {
+  min-height: 100vh;
+}
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+.text-muted-custom {
+  color: var(--text-muted);
+}
+
+.btn-luxury {
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.4rem;
+  background: linear-gradient(135deg, #c99b54, #8f6428);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 14px 34px rgba(143, 100, 40, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-luxury:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(143, 100, 40, 0.32);
+  color: #fff;
+}
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3.5rem 0;
+  }
+}
