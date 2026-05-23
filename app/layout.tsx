@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
-
-
+import "@/styles/heroSection.css";
+import "@/styles/homeSidebar.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" className={plusJakarta.variable}>
       <body>
         <Providers>
-          <BootstrapClient />
+         
 
           {children}
 
