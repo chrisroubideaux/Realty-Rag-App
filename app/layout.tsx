@@ -9,6 +9,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "@/styles/heroSection.css";
 import "@/styles/homeSidebar.css";
+import "@/styles/featuredListings.css";
+import "@/styles/testimonials.css";
+import "@/styles/footer.css";
+
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -17,7 +21,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Realty RAG",
+  title: "Dakota Realty",
   description: "AI-powered real estate search and property intelligence platform",
 };
 
