@@ -11,6 +11,11 @@ import "@/styles/heroSection.css";
 import "@/styles/homeSidebar.css";
 import "@/styles/featuredListings.css";
 import "@/styles/testimonials.css";
+import "@/styles/aiSearchPreview.css";
+import "@/styles/propertyCategories.css";
+import "@/styles/marketInsights.css";
+import "@/styles/agentSpotlight.css";
+import "@/styles/login.css";
 import "@/styles/footer.css";
 
 

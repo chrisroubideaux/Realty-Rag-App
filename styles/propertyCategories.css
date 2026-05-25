@@ -1,0 +1,206 @@
+/* styles/propertyCategories.css */
+
+.property-categories {
+  position: relative;
+  overflow: hidden;
+}
+
+.property-categories::before {
+  content: "";
+  position: absolute;
+  width: 34rem;
+  height: 34rem;
+  left: -14rem;
+  top: 20%;
+  border-radius: 999px;
+  background: rgba(250, 103, 129, 0.08);
+  filter: blur(30px);
+  z-index: -1;
+}
+
+.property-categories__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  align-items: end;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.property-categories__header h2 {
+  max-width: 760px;
+  margin: 1rem 0 0;
+  color: var(--text-main);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 950;
+}
+
+.property-categories__header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 550;
+}
+
+.property-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.property-category-card {
+  position: relative;
+  min-height: 245px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 30px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.86),
+      rgba(255, 250, 247, 0.7)
+    ),
+    radial-gradient(
+      circle at 15% 0%,
+      rgba(250, 103, 129, 0.1),
+      transparent 15rem
+    );
+  box-shadow: 0 20px 56px rgba(31, 31, 36, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease;
+}
+
+.property-category-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(250, 103, 129, 0.24);
+  box-shadow: 0 28px 78px rgba(31, 31, 36, 0.13);
+}
+
+.property-category-card__icon {
+  position: relative;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  color: #fff;
+  font-size: 1.45rem;
+  box-shadow: 0 18px 42px rgba(250, 103, 129, 0.18);
+}
+
+.property-category-card__content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.property-category-card h3 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 1.35rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 950;
+}
+
+.property-category-card p {
+  margin: 0.65rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-weight: 550;
+}
+
+.property-category-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1.1rem;
+}
+
+.property-category-card__footer span {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.property-category-card__footer strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--accent-deep);
+  font-size: 0.86rem;
+  font-weight: 950;
+}
+
+.property-category-card__orb {
+  position: absolute;
+  right: -3.5rem;
+  bottom: -3.5rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 999px;
+  background: rgba(250, 103, 129, 0.1);
+  filter: blur(4px);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.property-category-card:hover .property-category-card__orb {
+  transform: scale(1.18);
+  background: rgba(250, 103, 129, 0.16);
+}
+
+/* Responsive */
+
+@media (max-width: 1199px) {
+  .property-categories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .property-categories__header {
+    grid-template-columns: 1fr;
+  }
+
+  .property-categories__header p {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-categories__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .property-category-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-category-card {
+    border-radius: 26px;
+    padding: 1rem;
+  }
+
+  .property-category-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
