@@ -1,4 +1,5 @@
 /* styles/homeSidebar.css */
+/* styles/homeSidebar.css */
 
 .home-sidebar {
   border: 1px solid rgba(255, 255, 255, 0.78);
@@ -7,8 +8,6 @@
   -webkit-backdrop-filter: blur(22px);
   box-shadow: 0 24px 70px rgba(31, 31, 36, 0.1);
 }
-
-/* Desktop sidebar */
 
 .home-sidebar--desktop {
   position: fixed;
@@ -28,8 +27,6 @@
   border-radius: 28px;
 }
 
-/* Mobile sidebar */
-
 .home-sidebar--mobile {
   position: fixed;
   top: 0.8rem;
@@ -40,8 +37,6 @@
   border-radius: 28px;
 }
 
-/* Inner */
-
 .home-sidebar__inner {
   height: 100%;
   display: flex;
@@ -49,8 +44,6 @@
   padding: 1rem;
   overflow: hidden;
 }
-
-/* Brand */
 
 .home-sidebar__brand {
   display: flex;
@@ -110,14 +103,8 @@
   white-space: nowrap;
 }
 
-/* Sections */
-
 .home-sidebar__section {
   margin-bottom: 0.8rem;
-}
-
-.home-sidebar__section--account {
-  margin-top: auto;
 }
 
 .home-sidebar__section-label {
@@ -130,8 +117,6 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-
-/* Nav */
 
 .home-sidebar__nav {
   display: flex;
@@ -194,13 +179,77 @@
   font-size: 1rem;
 }
 
-/* Collapse button */
+.home-sidebar__ai-card {
+  margin-top: auto;
+  padding: 0.85rem;
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(250, 103, 129, 0.12),
+      rgba(255, 255, 255, 0.78)
+    ),
+    rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(250, 103, 129, 0.16);
+  box-shadow: 0 18px 44px rgba(31, 31, 36, 0.07);
+}
+
+.home-sidebar__ai-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: var(--gradient-brand);
+  color: #fff;
+  box-shadow: var(--shadow-brand);
+  margin-bottom: 0.65rem;
+  font-size: 1.05rem;
+}
+
+.home-sidebar__ai-card strong {
+  display: block;
+  color: var(--text-main);
+  font-size: 0.92rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.home-sidebar__ai-card p {
+  margin: 0.35rem 0 0.7rem;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.home-sidebar__ai-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 38px;
+  border-radius: 999px;
+  background: var(--text-main);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 900;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.home-sidebar__ai-card a:hover {
+  background: var(--accent-deep);
+  transform: translateY(-2px);
+  color: #fff;
+}
 
 .home-sidebar__collapse-btn {
   position: absolute;
   top: 1.1rem;
   right: -0.85rem;
-  z-index: 5;
+  z-index: 3;
   width: 34px;
   height: 34px;
   display: grid;
@@ -222,8 +271,6 @@
   background: #fff;
 }
 
-/* Collapsed state */
-
 .home-sidebar--collapsed .home-sidebar__inner {
   padding: 0.8rem;
   align-items: center;
@@ -237,10 +284,6 @@
 
 .home-sidebar--collapsed .home-sidebar__section {
   width: 100%;
-}
-
-.home-sidebar--collapsed .home-sidebar__section--account {
-  margin-top: auto;
 }
 
 .home-sidebar--collapsed .home-sidebar__nav {
@@ -266,8 +309,6 @@
   flex-basis: 38px;
   font-size: 1.08rem;
 }
-
-/* Mobile controls */
 
 .home-sidebar__mobile-toggle {
   position: fixed;
@@ -314,86 +355,12 @@
   -webkit-backdrop-filter: blur(7px);
 }
 
-/* =========================================================
-   Sidebar-aware page layout
-========================================================= */
-
 .with-home-sidebar {
-  min-height: 100vh;
-  width: 100%;
   padding-left: 292px;
-  padding-right: 1rem;
-  transition:
-    padding-left 0.25s ease,
-    padding-right 0.25s ease;
+  transition: padding-left 0.25s ease;
 }
 
-body.sidebar-is-collapsed .with-home-sidebar {
-  padding-left: 112px;
-}
-
-.with-home-sidebar .app-container {
-  width: min(100% - 2rem, 1500px);
-  max-width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-body.sidebar-is-collapsed .with-home-sidebar .app-container {
-  width: min(100% - 2rem, 1660px);
-  max-width: 1660px;
-}
-
-/* Home page grid adjustments */
-
-body.sidebar-is-collapsed .featured-listings__grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-body.sidebar-is-collapsed .property-categories__grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-body.sidebar-is-collapsed .testimonials-section__grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-body.sidebar-is-collapsed .agent-spotlight__grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-/* Listings page grid adjustments */
-
-body.sidebar-is-collapsed .listings-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-/* Detail page grid adjustments */
-
-body.sidebar-is-collapsed .listing-detail__hero {
-  grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.65fr);
-}
-
-body.sidebar-is-collapsed .listing-detail__content-grid {
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
-}
-
-/* =========================================================
-   Responsive
-========================================================= */
-
-@media (max-width: 1399px) {
-  body.sidebar-is-collapsed .featured-listings__grid,
-  body.sidebar-is-collapsed .agent-spotlight__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  body.sidebar-is-collapsed .property-categories__grid,
-  body.sidebar-is-collapsed .testimonials-section__grid,
-  body.sidebar-is-collapsed .listings-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+/* Responsive */
 
 @media (max-width: 1199px) {
   .home-sidebar--desktop {
@@ -406,22 +373,6 @@ body.sidebar-is-collapsed .listing-detail__content-grid {
 
   .with-home-sidebar {
     padding-left: 270px;
-    padding-right: 0.85rem;
-  }
-
-  body.sidebar-is-collapsed .with-home-sidebar {
-    padding-left: 112px;
-  }
-
-  .with-home-sidebar .app-container,
-  body.sidebar-is-collapsed .with-home-sidebar .app-container {
-    width: min(100% - 1.5rem, 100%);
-    max-width: 100%;
-  }
-
-  body.sidebar-is-collapsed .listing-detail__hero,
-  body.sidebar-is-collapsed .listing-detail__content-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -438,34 +389,12 @@ body.sidebar-is-collapsed .listing-detail__content-grid {
     display: grid;
   }
 
-  .home-sidebar__collapse-btn {
-    display: none;
-  }
-
   .home-sidebar__brand {
     padding-right: 3rem;
   }
 
-  .with-home-sidebar,
-  body.sidebar-is-collapsed .with-home-sidebar {
+  .with-home-sidebar {
     padding-left: 0;
-    padding-right: 0;
-  }
-
-  .with-home-sidebar .app-container,
-  body.sidebar-is-collapsed .with-home-sidebar .app-container {
-    width: min(100% - 1.25rem, 100%);
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  body.sidebar-is-collapsed .featured-listings__grid,
-  body.sidebar-is-collapsed .agent-spotlight__grid,
-  body.sidebar-is-collapsed .property-categories__grid,
-  body.sidebar-is-collapsed .testimonials-section__grid,
-  body.sidebar-is-collapsed .listings-grid {
-    grid-template-columns: 1fr;
   }
 }
 

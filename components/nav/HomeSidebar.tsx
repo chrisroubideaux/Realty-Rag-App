@@ -1,22 +1,23 @@
 // components/nav/HomeSidebar.tsx
-// components/nav/HomeSidebar.tsx
 
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  FiCalendar,
+  FiChevronLeft,
+  FiChevronRight,
   FiHome,
-  FiSearch,
-  FiUsers,
   FiInfo,
   FiLogIn,
   FiMenu,
-  FiX,
-  FiCalendar,
   FiMessageCircle,
+  FiSearch,
   FiShield,
+  FiUsers,
+  FiX,
 } from "react-icons/fi";
 
 type SidebarLink = {
@@ -41,8 +42,17 @@ const accountLinks: SidebarLink[] = [
 
 export default function HomeSidebar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const closeMobileMenu = () => setIsMobileOpen(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("sidebar-is-collapsed", isCollapsed);
+
+    return () => {
+      document.body.classList.remove("sidebar-is-collapsed");
+    };
+  }, [isCollapsed]);
 
   return (
     <>
@@ -55,8 +65,26 @@ export default function HomeSidebar() {
         <FiMenu />
       </button>
 
-      <aside className="home-sidebar home-sidebar--desktop">
-        <SidebarContent onLinkClick={closeMobileMenu} />
+      <aside
+        className={
+          isCollapsed
+            ? "home-sidebar home-sidebar--desktop home-sidebar--collapsed"
+            : "home-sidebar home-sidebar--desktop"
+        }
+      >
+        <button
+          className="home-sidebar__collapse-btn"
+          type="button"
+          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          onClick={() => setIsCollapsed((current) => !current)}
+        >
+          {isCollapsed ? <FiChevronRight /> : <FiChevronLeft />}
+        </button>
+
+        <SidebarContent
+          onLinkClick={closeMobileMenu}
+          isCollapsed={isCollapsed}
+        />
       </aside>
 
       <AnimatePresence>
@@ -88,7 +116,7 @@ export default function HomeSidebar() {
                 <FiX />
               </button>
 
-              <SidebarContent onLinkClick={closeMobileMenu} />
+              <SidebarContent onLinkClick={closeMobileMenu} isCollapsed={false} />
             </motion.aside>
           </>
         )}
@@ -97,7 +125,13 @@ export default function HomeSidebar() {
   );
 }
 
-function SidebarContent({ onLinkClick }: { onLinkClick: () => void }) {
+function SidebarContent({
+  onLinkClick,
+  isCollapsed,
+}: {
+  onLinkClick: () => void;
+  isCollapsed: boolean;
+}) {
   return (
     <div className="home-sidebar__inner">
       <Link
@@ -108,14 +142,18 @@ function SidebarContent({ onLinkClick }: { onLinkClick: () => void }) {
       >
         <span className="home-sidebar__brand-mark">D</span>
 
-        <span className="home-sidebar__brand-text">
-          <strong>Dakota</strong>
-          <small>Realty AI</small>
-        </span>
+        {!isCollapsed && (
+          <span className="home-sidebar__brand-text">
+            <strong>Dakota</strong>
+            <small>Realty AI</small>
+          </span>
+        )}
       </Link>
 
       <div className="home-sidebar__section">
-        <span className="home-sidebar__section-label">Explore</span>
+        {!isCollapsed && (
+          <span className="home-sidebar__section-label">Explore</span>
+        )}
 
         <nav className="home-sidebar__nav" aria-label="Main navigation">
           {mainLinks.map((link) => (
@@ -127,14 +165,19 @@ function SidebarContent({ onLinkClick }: { onLinkClick: () => void }) {
               title={link.label}
             >
               <span className="home-sidebar__link-icon">{link.icon}</span>
-              <span className="home-sidebar__link-label">{link.label}</span>
+
+              {!isCollapsed && (
+                <span className="home-sidebar__link-label">{link.label}</span>
+              )}
             </Link>
           ))}
         </nav>
       </div>
 
       <div className="home-sidebar__section home-sidebar__section--account">
-        <span className="home-sidebar__section-label">Account</span>
+        {!isCollapsed && (
+          <span className="home-sidebar__section-label">Account</span>
+        )}
 
         <nav className="home-sidebar__nav" aria-label="Account navigation">
           {accountLinks.map((link) => (
@@ -146,7 +189,10 @@ function SidebarContent({ onLinkClick }: { onLinkClick: () => void }) {
               title={link.label}
             >
               <span className="home-sidebar__link-icon">{link.icon}</span>
-              <span className="home-sidebar__link-label">{link.label}</span>
+
+              {!isCollapsed && (
+                <span className="home-sidebar__link-label">{link.label}</span>
+              )}
             </Link>
           ))}
         </nav>
@@ -154,6 +200,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick: () => void }) {
     </div>
   );
 }
+
 
 {/*
 "use client";
