@@ -1832,3 +1832,728 @@
     height: 40px;
   }
 }
+
+/* Apartment Listings Hero */
+
+.apartment-listings-hero {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  padding: 5rem 0 3rem;
+  overflow: hidden;
+}
+
+.apartment-listings-hero::before {
+  content: "";
+  position: absolute;
+  width: 34rem;
+  height: 34rem;
+  top: 10%;
+  right: -14rem;
+  border-radius: 999px;
+  background: rgba(250, 103, 129, 0.12);
+  filter: blur(32px);
+  z-index: -1;
+}
+
+.apartment-listings-hero::after {
+  content: "";
+  position: absolute;
+  width: 24rem;
+  height: 24rem;
+  left: -10rem;
+  bottom: 6%;
+  border-radius: 999px;
+  background: rgba(255, 154, 172, 0.12);
+  filter: blur(28px);
+  z-index: -1;
+}
+
+.apartment-listings-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+  align-items: center;
+  gap: 2rem;
+}
+
+.apartment-listings-hero__content {
+  max-width: 780px;
+}
+
+.apartment-listings-hero__content h1 {
+  margin: 1rem 0 0;
+  color: var(--text-main);
+  font-size: clamp(2.7rem, 6vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.075em;
+  font-weight: 950;
+}
+
+.apartment-listings-hero__content p {
+  max-width: 640px;
+  margin: 1.25rem 0 0;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.8;
+  font-weight: 550;
+}
+
+.apartment-listings-hero__search {
+  max-width: 620px;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.apartment-listings-hero__search-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 50px;
+  border-radius: 19px;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-brand);
+}
+
+.apartment-listings-hero__search span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.apartment-listings-hero__search strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-main);
+  font-size: 0.98rem;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.apartment-listings-hero__panel {
+  position: relative;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.apartment-listings-hero__visual {
+  position: relative;
+  min-height: 470px;
+  border-radius: 30px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.95),
+      transparent 15rem
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(184, 49, 82, 0.38),
+      transparent 14rem
+    ),
+    linear-gradient(
+      135deg,
+      rgba(184, 80, 116, 0.92),
+      rgba(250, 103, 129, 0.78)
+    );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.apartment-listings-hero__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(31, 31, 36, 0.08)),
+    radial-gradient(circle at 50% 45%, transparent, rgba(31, 31, 36, 0.16));
+}
+
+.apartment-listings-hero__visual-glow {
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  filter: blur(20px);
+  z-index: 1;
+}
+
+.apartment-listings-hero__floating {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: min(78%, 310px);
+  padding: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 44px rgba(31, 31, 36, 0.12);
+}
+
+.apartment-listings-hero__floating--top {
+  top: 1.2rem;
+  left: 1.2rem;
+}
+
+.apartment-listings-hero__floating--middle {
+  right: 1.2rem;
+  bottom: 8.5rem;
+}
+
+.apartment-listings-hero__floating svg {
+  width: 42px;
+  height: 42px;
+  padding: 0.65rem;
+  flex: 0 0 42px;
+  border-radius: 16px;
+  background: var(--gradient-brand);
+  color: #fff;
+  box-shadow: var(--shadow-brand);
+}
+
+.apartment-listings-hero__floating span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.apartment-listings-hero__floating strong {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  line-height: 1.25;
+  font-weight: 950;
+}
+
+.apartment-listings-hero__stats {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.apartment-listings-hero__stats div {
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 44px rgba(31, 31, 36, 0.1);
+}
+
+.apartment-listings-hero__stats svg {
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.apartment-listings-hero__stats strong {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--text-main);
+  font-size: 1.45rem;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-weight: 950;
+}
+
+.apartment-listings-hero__stats span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+/* Apartment Hero Responsive */
+
+@media (max-width: 1199px) {
+  .apartment-listings-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .apartment-listings-hero__content {
+    max-width: 860px;
+  }
+
+  .apartment-listings-hero__panel {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 991px) {
+  .apartment-listings-hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .apartment-listings-hero__content {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .apartment-listings-hero__content .brand-kicker {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .apartment-listings-hero__content p,
+  .apartment-listings-hero__search {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .apartment-listings-hero__panel {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .apartment-listings-hero {
+    min-height: auto;
+    padding: 4.5rem 0 2.5rem;
+  }
+
+  .apartment-listings-hero__search {
+    align-items: flex-start;
+  }
+
+  .apartment-listings-hero__visual {
+    min-height: 470px;
+    border-radius: 26px;
+  }
+
+  .apartment-listings-hero__floating {
+    width: auto;
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .apartment-listings-hero__floating--middle {
+    bottom: 10.5rem;
+  }
+
+  .apartment-listings-hero__stats {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .apartment-listings-hero__stats div {
+    min-height: 74px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apartment-listings-hero__content h1 {
+    letter-spacing: -0.06em;
+  }
+
+  .apartment-listings-hero__search {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .apartment-listings-hero__panel {
+    padding: 0.85rem;
+  }
+
+  .apartment-listings-hero__visual {
+    min-height: 520px;
+  }
+
+  .apartment-listings-hero__floating--middle {
+    bottom: 15.5rem;
+  }
+}
+/* Home Listings Hero */
+
+.home-listings-hero {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  padding: 5rem 0 3rem;
+  overflow: hidden;
+}
+
+.home-listings-hero::before {
+  content: "";
+  position: absolute;
+  width: 34rem;
+  height: 34rem;
+  top: 10%;
+  right: -14rem;
+  border-radius: 999px;
+  background: rgba(250, 103, 129, 0.12);
+  filter: blur(32px);
+  z-index: -1;
+}
+
+.home-listings-hero::after {
+  content: "";
+  position: absolute;
+  width: 24rem;
+  height: 24rem;
+  left: -10rem;
+  bottom: 6%;
+  border-radius: 999px;
+  background: rgba(255, 154, 172, 0.12);
+  filter: blur(28px);
+  z-index: -1;
+}
+
+.home-listings-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+  align-items: center;
+  gap: 2rem;
+}
+
+.home-listings-hero__content {
+  max-width: 780px;
+}
+
+.home-listings-hero__content h1 {
+  margin: 1rem 0 0;
+  color: var(--text-main);
+  font-size: clamp(2.7rem, 6vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.075em;
+  font-weight: 950;
+}
+
+.home-listings-hero__content p {
+  max-width: 640px;
+  margin: 1.25rem 0 0;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.8;
+  font-weight: 550;
+}
+
+.home-listings-hero__search {
+  max-width: 620px;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.home-listings-hero__search-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 50px;
+  border-radius: 19px;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-brand);
+}
+
+.home-listings-hero__search span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.home-listings-hero__search strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-main);
+  font-size: 0.98rem;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.home-listings-hero__panel {
+  position: relative;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.home-listings-hero__visual {
+  position: relative;
+  min-height: 470px;
+  border-radius: 30px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.95),
+      transparent 15rem
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(184, 49, 82, 0.38),
+      transparent 14rem
+    ),
+    linear-gradient(
+      135deg,
+      rgba(250, 103, 129, 0.92),
+      rgba(255, 154, 172, 0.78)
+    );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.home-listings-hero__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(31, 31, 36, 0.08)),
+    radial-gradient(circle at 50% 45%, transparent, rgba(31, 31, 36, 0.16));
+}
+
+.home-listings-hero__visual-glow {
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  filter: blur(20px);
+  z-index: 1;
+}
+
+.home-listings-hero__floating {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: min(78%, 310px);
+  padding: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 44px rgba(31, 31, 36, 0.12);
+}
+
+.home-listings-hero__floating--top {
+  top: 1.2rem;
+  left: 1.2rem;
+}
+
+.home-listings-hero__floating--middle {
+  right: 1.2rem;
+  bottom: 8.5rem;
+}
+
+.home-listings-hero__floating svg {
+  width: 42px;
+  height: 42px;
+  padding: 0.65rem;
+  flex: 0 0 42px;
+  border-radius: 16px;
+  background: var(--gradient-brand);
+  color: #fff;
+  box-shadow: var(--shadow-brand);
+}
+
+.home-listings-hero__floating span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.home-listings-hero__floating strong {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  line-height: 1.25;
+  font-weight: 950;
+}
+
+.home-listings-hero__stats {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.home-listings-hero__stats div {
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 44px rgba(31, 31, 36, 0.1);
+}
+
+.home-listings-hero__stats svg {
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.home-listings-hero__stats strong {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--text-main);
+  font-size: 1.45rem;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-weight: 950;
+}
+
+.home-listings-hero__stats span {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+/* Home Hero Responsive */
+
+@media (max-width: 1199px) {
+  .home-listings-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-listings-hero__content {
+    max-width: 860px;
+  }
+
+  .home-listings-hero__panel {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 991px) {
+  .home-listings-hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .home-listings-hero__content {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .home-listings-hero__content .brand-kicker {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-listings-hero__content p,
+  .home-listings-hero__search {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-listings-hero__panel {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-listings-hero {
+    min-height: auto;
+    padding: 4.5rem 0 2.5rem;
+  }
+
+  .home-listings-hero__search {
+    align-items: flex-start;
+  }
+
+  .home-listings-hero__visual {
+    min-height: 470px;
+    border-radius: 26px;
+  }
+
+  .home-listings-hero__floating {
+    width: auto;
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .home-listings-hero__floating--middle {
+    bottom: 10.5rem;
+  }
+
+  .home-listings-hero__stats {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .home-listings-hero__stats div {
+    min-height: 74px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-listings-hero__content h1 {
+    letter-spacing: -0.06em;
+  }
+
+  .home-listings-hero__search {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .home-listings-hero__panel {
+    padding: 0.85rem;
+  }
+
+  .home-listings-hero__visual {
+    min-height: 520px;
+  }
+
+  .home-listings-hero__floating--middle {
+    bottom: 15.5rem;
+  }
+}
