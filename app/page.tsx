@@ -1,5 +1,5 @@
 // app/page.tsx
-import FeaturedListings from "@/components/listings/FeaturedListings";
+import FeaturedListings from "@/components/properties/listings/FeaturedListings";
 import HeroSection from "@/components/hero/HeroSection";
 import HomeSidebar from "@/components/nav/HomeSidebar";
 import Testimonials from "@/components/misc/Testimonials";

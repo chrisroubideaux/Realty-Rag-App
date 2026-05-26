@@ -16,6 +16,7 @@ import "@/styles/propertyCategories.css";
 import "@/styles/marketInsights.css";
 import "@/styles/agentSpotlight.css";
 import "@/styles/login.css";
+import "@/styles/listings.css";
 import "@/styles/footer.css";
 
 

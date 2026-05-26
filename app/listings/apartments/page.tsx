@@ -1,0 +1,1 @@
+// app/listings/apartments/page.tsx

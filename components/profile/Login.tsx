@@ -1,12 +1,11 @@
 // components/profile/Login.tsx
 
-// components/profile/Login.tsx
-
 "use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
+  FiArrowLeft,
   FiArrowRight,
   FiEye,
   FiShield,
@@ -52,9 +51,9 @@ export default function Login() {
             </h1>
 
             <p>
-              Sign in with facial recognition, Google, or Facebook to save
-              listings, request showings, compare properties, and access your
-              AI-powered real estate dashboard.
+              Sign in or create your account with facial recognition, Google, or
+              Facebook to save listings, request showings, compare properties,
+              and access your AI-powered real estate dashboard.
             </p>
 
             <div className="login-page__benefits">
@@ -87,12 +86,20 @@ export default function Login() {
               </div>
 
               <div>
-                <span>Account login</span>
-                <h2>Choose how to sign in</h2>
+                <span>Account access</span>
+                <h2>Choose how to continue</h2>
               </div>
             </div>
 
             <div className="login-card__auth-stack">
+              <Link href="/" className="login-card__home-btn">
+                <span className="login-card__button-icon">
+                  <FiArrowLeft />
+                </span>
+
+                <span>Back home</span>
+              </Link>
+
               <button
                 className="login-card__face"
                 type="button"
@@ -141,14 +148,6 @@ export default function Login() {
                 <FiArrowRight className="login-card__button-arrow" />
               </button>
             </div>
-
-            <p className="login-card__signup">
-              New here? <Link href="/register">Create an account</Link>
-            </p>
-
-            <Link href="/agent/login" className="login-card__agent-link">
-              Agent or admin? Continue to agent portal
-            </Link>
           </motion.section>
         </div>
       </div>
@@ -174,6 +173,7 @@ function FiHomeIcon() {
     </svg>
   );
 }
+
 
 {/*
 "use client";
