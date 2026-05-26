@@ -56,19 +56,19 @@ const categoryTabs: CategoryTab[] = [
   },
   {
     label: "Luxury",
-    href: "/listings?type=luxury",
+    href: "/listings/luxury",
     count: "9",
     icon: <FiStar />,
   },
   {
     label: "Investment",
-    href: "/listings?type=investment",
+    href: "/listings/investments",
     count: "11",
     icon: <FiTrendingUp />,
   },
   {
     label: "Multi-family",
-    href: "/listings?type=multi-family",
+    href: "/listings/multi-family",
     count: "7",
     icon: <FiUsers />,
   },
