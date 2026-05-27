@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/about.css";
+import "@/styles/admin.css";
 import "@/styles/globals.css";
 import "@/styles/heroSection.css";
 import "@/styles/homeSidebar.css";
