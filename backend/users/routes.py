@@ -95,14 +95,34 @@ def get_current_user(current_user):
         "user": current_user.to_dict()
     }), 200
 
-
-@user_bp.route("/me", methods=["PUT"])
+@user_bp.route("/me", methods=["PUT", "PATCH"])
 @user_token_required
 def update_current_user(current_user):
     data = request.get_json() or {}
 
+    # Full name
+    if "full_name" in data:
+        current_user.full_name = (
+            data.get("full_name").strip()
+            if isinstance(data.get("full_name"), str)
+            else data.get("full_name")
+        )
+
+    # Email needs special handling because it is unique
+    if "email" in data:
+        new_email = (data.get("email") or "").strip().lower()
+
+        if not new_email:
+            return jsonify({"error": "Email cannot be empty"}), 400
+
+        existing_user = User.query.filter_by(email=new_email).first()
+
+        if existing_user and str(existing_user.id) != str(current_user.id):
+            return jsonify({"error": "Email already registered"}), 400
+
+        current_user.email = new_email
+
     editable_fields = [
-        "full_name",
         "profile_image_url",
         "phone_number",
         "user_type",
