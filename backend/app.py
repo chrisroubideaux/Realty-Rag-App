@@ -14,11 +14,15 @@ from extensions import db, migrate, jwt, limiter
 
 # Models for migrations
 from admin.models import Admin, AdminIdentity
+from users.models import User, UserIdentity
+
 
 
 # Blueprints
 from admin.routes import admin_bp
 from admin.oauth import admin_oauth_bp
+from users import user_bp
+from users.oauth import oauth_bp
 
 
 def _build_allowed_origins():
@@ -101,7 +105,8 @@ def create_app():
 
     app.register_blueprint(admin_bp)
     app.register_blueprint(admin_oauth_bp)
-
+    app.register_blueprint(user_bp)
+    app.register_blueprint(oauth_bp)
     @app.get("/")
     def home():
         return jsonify({
